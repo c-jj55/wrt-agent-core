@@ -13,6 +13,7 @@ Under restrictive campus network topologies, routing policies encounter dynamic 
 2. **Reasoning (CoT)**: Correlates distributed failures across SmartDNS, Lucky, and UA3F to deduce gateway firewall status.
 3. **Execution**: Extracts exact Shell payloads to modify configs dynamically and trigger service restarts.
 
+```mermaid
 graph TD
     A[系统日志流 logread] -->|实时捕获| B(感知 Agent)
     B -->|正则匹配异常| C{异常分类器}
@@ -20,6 +21,7 @@ graph TD
     D -->|推导根源| E(生成 Shell 补丁)
     E -->|下发配置| F[重启网络组件]
     F -->|状态检测| B
+```
 
 ## Environment
 - **Firmware**: OpenWrt / ImmortalWrt (Kernel 5.15+)
