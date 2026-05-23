@@ -15,6 +15,12 @@ Under restrictive campus network topologies, routing policies encounter dynamic 
 
 ## Installation & Test
 ```bash
+
+## Environment
+- **Firmware**: OpenWrt / ImmortalWrt (Kernel 5.15+)
+- **Tested Hardware**: MediaTek Filogic 820 platforms (e.g., Xiaomi AX3000T)
+- **Dependencies**: Python 3.8+, `requests`
+
 git clone [https://github.com/YOUR_USERNAME/wrt-agent-core.git](https://github.com/YOUR_USERNAME/wrt-agent-core.git)
 cd wrt-agent-core
 pip install -r requirements.txt
