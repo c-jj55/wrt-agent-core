@@ -13,13 +13,23 @@ Under restrictive campus network topologies, routing policies encounter dynamic 
 2. **Reasoning (CoT)**: Correlates distributed failures across SmartDNS, Lucky, and UA3F to deduce gateway firewall status.
 3. **Execution**: Extracts exact Shell payloads to modify configs dynamically and trigger service restarts.
 
-## Installation & Test
-```bash
+graph TD
+    A[系统日志流 logread] -->|实时捕获| B(感知 Agent)
+    B -->|正则匹配异常| C{异常分类器}
+    C -->|DNS拦截/特征暴露| D[大模型长链推理 CoT]
+    D -->|推导根源| E(生成 Shell 补丁)
+    E -->|下发配置| F[重启网络组件]
+    F -->|状态检测| B
 
 ## Environment
 - **Firmware**: OpenWrt / ImmortalWrt (Kernel 5.15+)
 - **Tested Hardware**: MediaTek Filogic 820 platforms (e.g., Xiaomi AX3000T)
 - **Dependencies**: Python 3.8+, `requests`
+
+
+## Installation & Test
+```bash
+
 
 git clone [https://github.com/YOUR_USERNAME/wrt-agent-core.git](https://github.com/YOUR_USERNAME/wrt-agent-core.git)
 cd wrt-agent-core
